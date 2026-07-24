@@ -24,7 +24,7 @@ This repository provides the official PyTorch implementation of:
 📄 **Paper:** [Tech Science Press](https://www.techscience.com/CMES/v147n3/67919)
 🔗 **DOI:** [10.32604/cmes.2026.082506](https://doi.org/10.32604/cmes.2026.082506)
 
----
+
 
 ## 🔍 Overview
 
@@ -39,7 +39,7 @@ SegTSF addresses this limitation through **hierarchical segment learning**:
 * **Hierarchical segment learning** models local patterns within segments and global relationships across segments.
 * **Lightweight linear layers** maintain low parameter and computational costs.
 
----
+
 
 ## 🏗️ Model Architecture
 
@@ -59,53 +59,49 @@ SegTSF processes the input sequence through the following steps:
 
 The main model is implemented in [`models/SegTSF.py`](./models/SegTSF.py).
 
----
 
-## 📊 Experimental Results1
+
+## 📊 Experimental Results
 
 ### Forecasting Performance
+SegTSF demonstrates strong forecasting performance across multiple datasets and prediction horizons. In particular, it achieves competitive results on ETTh1 and ETTh2 at shorter prediction horizons while maintaining the computational advantages of a lightweight linear model.
 
 <p align="center">
   <img src="./Figures/Table4.jpg" alt="Multivariate time-series forecasting results" width="100%">
 </p>
 
-**Table 4** compares the forecasting performance of SegTSF with complex and lightweight baseline models across multiple datasets and prediction horizons. SegTSF demonstrates strong performance on ETTh1 and ETTh2, particularly at the shorter prediction horizons of 96 and 192, while remaining competitive among lightweight linear models on the other datasets.
 
----
+
 
 ### Unified Lookback Window
+A controlled comparison using the same lookback window of 720 shows that the optimal input length can vary across models and datasets. This supports the use of individually validated configurations in the main experiments.
 
 <p align="center">
   <img src="./Figures/Table5.jpg" alt="Forecasting results under a unified lookback window" width="100%">
 </p>
 
-**Table 5** presents a controlled comparison in which all models use the same lookback window of 720. The results indicate that the optimal input length varies across models and datasets, supporting the use of individually validated configurations for the main comparison.
 
----
+
 
 ### Efficiency Analysis
+SegTSF uses only 0.66K parameters and achieves the fastest inference, epoch, and total training times among the evaluated methods. These results demonstrate a favorable balance between forecasting accuracy and computational efficiency.
 
 <p align="center">
   <img src="./Figures/Table6.jpg" alt="Model efficiency comparison" width="100%">
 </p>
 
-**Table 6** compares the parameter count, computational cost, memory usage, and execution time of each model. SegTSF uses only **0.66K parameters** and achieves the fastest inference, epoch, and total training times among the evaluated methods, demonstrating a favorable balance between forecasting performance and computational efficiency.
 
----
 
 ### Ablation Study
+The complete SegTSF model generally achieves the best forecasting performance, particularly at prediction horizons of 96 and 192. The results indicate that intra-period learning and hierarchical segment learning complement each other in capturing periodic dependencies and local temporal patterns.
 
 <p align="center">
   <img src="./Figures/Table7.jpg" alt="Ablation study of SegTSF" width="100%">
 </p>
 
-**Table 7** evaluates the contributions of intra-period learning and hierarchical segment learning. The complete SegTSF model generally achieves the best performance, particularly at prediction horizons of 96 and 192, showing that the two components work together to capture periodic dependencies and local temporal patterns.
-
-Detailed numerical results are also available in
-[`Figures/Experiments.xlsx`](./Figures/Experiments.xlsx).
 
 
----
+
 
 ## 🚀 Getting Started
 
