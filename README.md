@@ -133,8 +133,6 @@ pip install -r requirements.txt
 ```
 
 
----
-
 ## 📦 Dataset Preparation
 
 The datasets used in our experiments are publicly available from the following repositories:
@@ -158,7 +156,6 @@ SegTSF/
 
 The dataset path and filename can be configured in `main.ipynb`.
 
----
 
 ## 📄 Citation
 
