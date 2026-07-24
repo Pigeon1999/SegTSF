@@ -63,14 +63,47 @@ The main model is implemented in [`models/SegTSF.py`](./models/SegTSF.py).
 
 ## 📊 Experimental Results
 
+### Forecasting Performance
+
 <p align="center">
-  <img src="./Figures/Figure2.png" alt="SegTSF experimental analysis 1" width="48%">
-  <img src="./Figures/Figure3.png" alt="SegTSF experimental analysis 2" width="48%">
+  <img src="./Figures/Table4.jpg" alt="Multivariate time-series forecasting results" width="100%">
 </p>
 
-Detailed numerical results from the paper are provided in:
+**Table 4** compares the forecasting performance of SegTSF with complex and lightweight baseline models across multiple datasets and prediction horizons. SegTSF demonstrates strong performance on ETTh1 and ETTh2, particularly at the shorter prediction horizons of 96 and 192, while remaining competitive among lightweight linear models on the other datasets.
 
-* [`Figures/Experiments.xlsx`](./Figures/Experiments.xlsx)
+---
+
+### Unified Lookback Window
+
+<p align="center">
+  <img src="./Figures/Table5.jpg" alt="Forecasting results under a unified lookback window" width="100%">
+</p>
+
+**Table 5** presents a controlled comparison in which all models use the same lookback window of 720. The results indicate that the optimal input length varies across models and datasets, supporting the use of individually validated configurations for the main comparison.
+
+---
+
+### Efficiency Analysis
+
+<p align="center">
+  <img src="./Figures/Table6.jpg" alt="Model efficiency comparison" width="100%">
+</p>
+
+**Table 6** compares the parameter count, computational cost, memory usage, and execution time of each model. SegTSF uses only **0.66K parameters** and achieves the fastest inference, epoch, and total training times among the evaluated methods, demonstrating a favorable balance between forecasting performance and computational efficiency.
+
+---
+
+### Ablation Study
+
+<p align="center">
+  <img src="./Figures/Table7.jpg" alt="Ablation study of SegTSF" width="100%">
+</p>
+
+**Table 7** evaluates the contributions of intra-period learning and hierarchical segment learning. The complete SegTSF model generally achieves the best performance, particularly at prediction horizons of 96 and 192, showing that the two components work together to capture periodic dependencies and local temporal patterns.
+
+Detailed numerical results are also available in
+[`Figures/Experiments.xlsx`](./Figures/Experiments.xlsx).
+
 
 ---
 
